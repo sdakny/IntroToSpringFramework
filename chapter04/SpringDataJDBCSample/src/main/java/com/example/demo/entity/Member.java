@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
-	/** Member番号 */
+	/** Member ID */
 	@Id
 	private Integer id;
-	/** Member氏名 */
+	/** Member name */
 	private String name;
 }

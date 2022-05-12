@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.entity.Member;
 import com.example.demo.repository.MemberCrudRepository;
 /**
-* SpringBoot起動クラス
+* SpringBoot startup class
 */
 @SpringBootApplication
 public class SpringDataJdbcSampleApplication {
@@ -17,31 +17,31 @@ public class SpringDataJdbcSampleApplication {
 	@Autowired
 	MemberCrudRepository repository;
 	/**
-	*「登録」 と「全件取得」 を実行
+	*execute "insert" and "select"
 	*/
 	private void execute() {
-		// 登録
+		// insert
 		executeInsert();
-		// 全件取得
+		// select
 		executeSelect();
 	}
 	/**
-	* 登録
+	* insert
 	*/
 	private void executeInsert() {
-		// エンティティの作成(idは自動連番で設定するためnullを設定)
+		// create entity
 		Member member = new Member(null, "花子");
-		// リポジトリを使用して登録を実施、結果を取得
+		// use repository to insert, and get the result
 		member = repository.save(member);
-		// 結果を表示
+		// print the result
 		System.out.println("登録したデータ:" + member);
 	}
 	/**
-	* 全件取得
+	* select
 	*/
 	private void executeSelect() {
 		System.out.println("--- 全件取得します ---");
-		// リポジトリを使用して全件取得を実施、結果を取得b
+		// use repository to select, and get the result
 		Iterable<Member> members = repository.findAll();
 		for (Member member : members) {
 			System.out.println(member);
